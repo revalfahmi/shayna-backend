@@ -20,10 +20,9 @@
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
-                                    <?php $no = 0; ?>
                                     @forelse ($items as $item)
-                                        <?php $no++; ?>
-                                        <td>{{ $no }}</td>
+                                    <tr>
+                                        <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->price }}</td>
@@ -43,6 +42,7 @@
                                                 </button>
                                             </form>
                                         </td>
+                                    </tr>
                                     @empty
                                         <tr>
                                             <td colspan="6" class="text-center p-5">
