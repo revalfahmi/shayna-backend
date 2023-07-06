@@ -20,8 +20,10 @@
                                     <th>Action</th>
                                 </thead>
                                 <tbody>
+                                    <?php $no = 0; ?>
                                     @forelse ($items as $item)
-                                        <td>{{ $item->id }}</td>
+                                        <?php $no++; ?>
+                                        <td>{{ $no }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->price }}</td>
@@ -30,10 +32,11 @@
                                             <a href="" class="href btn btn-info btn-sm">
                                                 <i class="fa fa-picture-o"></i>
                                             </a>
-                                            <a href="" class="href btn btn-primary btn-sm">
+                                            <a href="{{ route('product.edit', $item->id) }}" class="href btn btn-primary btn-sm">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
-                                            <form action="" method="POST" class="d-inline">
+                                            <form action="{{ route('product.destroy', $item->id) }}" method="POST" class="d-inline">
+                                                @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger btn-sm">
                                                     <i class="fa fa-trash"></i>
