@@ -45,12 +45,12 @@
                                         </td>
                                         <td>
                                             @if ($item->transaction_status == 'PENDING')
-                                                {{-- <a href="{{  }} ? status=SUCCESS" class="btn btn-success btn-sm">
+                                                <a href="{{ route('transaction.status', $item->id) }}?status=SUCCESS" class="btn btn-success btn-sm">
                                                     <i class="fa fa-check"></i>
                                                 </a>
-                                                <a href="{{  }} ? status=FAILED" class="btn btn-danger btn-sm">
+                                                <a href="{{ route('transaction.status', $item->id) }}?status=FAILED" class="btn btn-danger btn-sm">
                                                     <i class="fa fa-times"></i>
-                                                </a> --}}
+                                                </a>
                                             @endif
                                             <a href="#mymodal" data-remote="{{ route('transaction.show', $item->id) }}" data-toggle="modal" data-target="#mymodal" data-title="Detail Transaksi {{ $item->uuid }}" class="href btn btn-info btn-sm">
                                                 <i class="fa fa-eye"></i>
